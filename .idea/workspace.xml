@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee5fb0fc-d844-4b51-8444-b1426fedfb3d" name="Changes" comment="[Fix] fix unused variable and typo">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ee5fb0fc-d844-4b51-8444-b1426fedfb3d" name="Changes" comment="[Feat] Add server &amp; android app">
+      <change afterPath="$PROJECT_DIR$/app/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app/src/main/java/fr/tonychouteau/raspberrypicontroller/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/app/src/main/java/fr/tonychouteau/raspberrypicontroller/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +144,8 @@
       <workItem from="1730544329616" duration="891000" />
       <workItem from="1730545955204" duration="3004000" />
       <workItem from="1730564926890" duration="125000" />
-      <workItem from="1730565053245" duration="308000" />
+      <workItem from="1730565053245" duration="4861000" />
+      <workItem from="1730754562931" duration="3271000" />
     </task>
     <task id="LOCAL-00001" summary="[Edit] [.gitignore]">
       <option name="closed" value="true" />
@@ -166,7 +171,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730545107275</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[Update] [.gitignore]">
+      <option name="closed" value="true" />
+      <created>1730565430317</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730565430317</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[Feat] Add server &amp; android app">
+      <option name="closed" value="true" />
+      <created>1730565682191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730565682191</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,11 +214,13 @@
     <MESSAGE value="[Edit] [.gitignore]" />
     <MESSAGE value="[Edit] [ServerApp] Add server app" />
     <MESSAGE value="[Fix] fix unused variable and typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Fix] fix unused variable and typo" />
+    <MESSAGE value="[Update] [.gitignore]" />
+    <MESSAGE value="[Feat] Add server &amp; android app" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feat] Add server &amp; android app" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RaspberryPiControllerServer$tester.coverage" NAME="tester Coverage Results" MODIFIED="1730319394510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RaspberryPiController$main.coverage" NAME="main Coverage Results" MODIFIED="1730547394880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/RaspberryPiController$main.coverage" NAME="main Coverage Results" MODIFIED="1730758072574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/RaspberryPiControllerServer$main.coverage" NAME="main Coverage Results" MODIFIED="1730543602010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
