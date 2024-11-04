@@ -114,6 +114,7 @@ class EchoWebSocketListener(
     }
 
     override fun onMessage(webSocket: WebSocket, text: String) {
+        println(text)
         if (text == "FORBIDDEN") {
             onLogin(AuthStatus.FORBIDDEN)
         } else if (text == "AUTHORIZED") {
