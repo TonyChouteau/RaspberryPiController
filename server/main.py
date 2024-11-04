@@ -1,10 +1,17 @@
 import asyncio
 import ssl
+import traceback
+
 import websockets
 
 from pynput.mouse import Button, Controller
 from pyautogui import press, write
 # from datetime import datetime, timedelta
+
+
+class BadToken(Exception):
+    pass
+
 
 with open("keys.txt", "r") as f:
     keys = f.readlines()
@@ -42,7 +49,13 @@ async def handle_message(websocket, path):
             print(f"Message from client {websocket.remote_address}: {message}")
 
             # Handle different types of messages
-            if message.startswith("DRAG"):
+            if message.startswith("API_KEY"):
+                message_splitted = message.split()
+                if len(message_splitted) == 2:
+                    token = message_splitted[1]
+                    if token != TOKEN:
+                        raise BadToken()
+            elif message.startswith("DRAG"):
                 if not connected_client["auth"]:
                     print(f"Not authorized")
                     await websocket.send("FORBIDDEN")
@@ -124,6 +137,14 @@ async def handle_message(websocket, path):
 
     except websockets.ConnectionClosed:
         print(f"Client disconnected: {websocket.remote_address}")
+
+    except BadToken:
+        print(f"Bad token")
+        await websocket.send("Bad token")
+
+    except Exception:
+        print(f"Bad request {traceback.format_exc()}")
+        await websocket.send("Bad request")
 
     finally:
         # Unregister client connection
