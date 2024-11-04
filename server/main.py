@@ -45,26 +45,41 @@ async def handle_message(websocket, path):
             if message.startswith("DRAG"):
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
                 # Example message: "DRAG x y"
                 _, x, y = message.split()
                 print(f"Received drag movement: x={x}, y={y}")
                 mouse.position = (mouse.position[0] + float(x), mouse.position[1] + float(y))
 
+            elif message == "BACK":
+                connected_client["entry"] = connected_client["entry"][:-1]
+                print(connected_client["entry"])
+
+                if not connected_client["auth"]:
+                    print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
+                    continue
+                press("backspace")
+
             elif message == "ENTER":
                 print("Received enter event")
                 if connected_client["entry"] == PASSWORD:
                     connected_client["auth"] = True
                     connected_client["entry"] = ""
+                    await websocket.send("AUTHORIZED")
                     print("Authent OK")
                     continue
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
+                press("enter")
 
             elif message == "LEFT_CLICK":
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
                 print("Received left click event")
                 mouse.press(Button.left)
@@ -73,6 +88,7 @@ async def handle_message(websocket, path):
             elif message == "MIDDLE_CLICK":
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
                 print("Received middle click event")
                 mouse.press(Button.middle)
@@ -81,6 +97,7 @@ async def handle_message(websocket, path):
             elif message == "RIGHT_CLICK":
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
                 print("Received right click event")
                 mouse.press(Button.right)
@@ -97,15 +114,13 @@ async def handle_message(websocket, path):
 
                 if not connected_client["auth"]:
                     print(f"Not authorized")
+                    await websocket.send("FORBIDDEN")
                     continue
 
                 if char == '287762808832':
                     press("backspace")
                 else:
                     write(char)
-
-            # Echo message back to the client (optional)
-            await websocket.send(f"Server received: {message}")
 
     except websockets.ConnectionClosed:
         print(f"Client disconnected: {websocket.remote_address}")
